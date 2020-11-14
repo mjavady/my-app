@@ -8,8 +8,6 @@ const app = express();
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended:true}));
 
-const apikey = "c63265a70d8ed91fdb8e7963adb616d7-us7";
-const uniqueid = "7e419fcad7";
 
 app.get("/", (req, res)=>{
     res.sendFile(`${__dirname}/Sign_up.html`)
@@ -35,10 +33,10 @@ app.post("/", (req, res)=>{
 
     const datajson = JSON.stringify(data);
 
-    const url = "https://us7.api.mailchimp.com/3.0/lists/7e419fcad7"
+    const url = "https://us7.api.mailchimp.com/3.0/lists/listkey"
     const options = {
         method: "POST",
-        auth: "mjavad976:c63265a70d8ed91fdb8e7963adb616d7-us7"
+        auth: "mjavad976:apikey"
     }
 
     const request = https.request(url, options, (response)=>{
